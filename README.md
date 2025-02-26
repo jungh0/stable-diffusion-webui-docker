@@ -92,7 +92,8 @@ siutin/stable-diffusion-webui-docker:latest-cuda-12.6.3 bash -c ^
 ```
 
 ```
-sudo chmod -R 777 /app/stable-diffusion-webui/
+sudo chmod -R 777 /app/stable-diffusion-webui/models
+sudo chmod -R 777 /app/stable-diffusion-webui/extensions
 sudo chmod -R 777 /app/stable-diffusion-webui/outputs/
 ```
 
