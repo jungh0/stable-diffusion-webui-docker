@@ -79,3 +79,22 @@ docker buildx build -f Dockerfile.cpu \
 # Check your current CUDA Driver API version
 nvidia-smi -x -q |sed -n 's/.*<cuda_version>\(.*\)<\/cuda_version>.*/\1/p'
 ```
+
+### Jung ADD
+
+```
+docker run --name sdw --gpus all -p 8080:8080 ^
+-v stable-diffusion_extensions:/app/stable-diffusion-webui/extensions ^
+-v stable-diffusion_models:/app/stable-diffusion-webui/models ^
+-v stable-diffusion_outputs:/app/stable-diffusion-webui/outputs ^
+siutin/stable-diffusion-webui-docker:latest-cuda-12.6.3 bash -c ^
+"bash webui.sh --xformers --listen --port 8080 --no-download-sd-model --gradio-auth 'aaaa:bbbb'"
+```
+
+```
+sudo chmod -777 /app/stable-diffusion-webui/outputs/
+```
+
+```
+docker start sdw
+```
